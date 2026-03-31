@@ -1,0 +1,94 @@
+@use "../../app/assets/styles/colors" as color;
+
+.section {
+  padding: 6rem 1.5rem;
+  background: color.$navy;
+
+  :global(html.dark) & {
+    background: color.$bg-dark-2;
+  }
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color.$gold;
+  margin-bottom: 0.75rem;
+}
+
+.heading {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: color.$white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.25s ease, background 0.25s ease;
+
+  &:hover {
+    border-color: rgba(245, 166, 35, 0.3);
+    background: rgba(245, 166, 35, 0.03);
+  }
+
+  &.featured {
+    background: rgba(245, 166, 35, 0.06);
+    border-color: rgba(245, 166, 35, 0.3);
+
+    .cardAccent {
+      background: color.$gold;
+    }
+
+    .cardTitle {
+      color: color.$gold;
+    }
+  }
+}
+
+.cardAccent {
+  width: 24px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: color.$white;
+  line-height: 1.3;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+}

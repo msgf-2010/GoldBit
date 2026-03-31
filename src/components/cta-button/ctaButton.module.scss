@@ -1,0 +1,78 @@
+@use "../../app/assets/styles/colors" as color;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+// Sizes
+.sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.8rem;
+}
+
+.md {
+  padding: 0.65rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.lg {
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+}
+
+// Variants
+.primary {
+  background: color.$gold;
+  color: color.$navy;
+  border: 2px solid color.$gold;
+
+  &:hover {
+    background: color.$gold-light;
+    border-color: color.$gold-light;
+    box-shadow: 0 4px 20px rgba(245, 166, 35, 0.35);
+  }
+}
+
+.outline {
+  background: transparent;
+  color: color.$gold;
+  border: 2px solid color.$gold;
+
+  &:hover {
+    background: rgba(245, 166, 35, 0.08);
+    box-shadow: 0 4px 20px rgba(245, 166, 35, 0.2);
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: color.$navy;
+  border: 2px solid color.$gray-200;
+
+  :global(html.dark) & {
+    color: color.$white;
+    border-color: color.$border-dark;
+  }
+
+  &:hover {
+    border-color: color.$gold;
+    color: color.$gold;
+  }
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover .arrow {
+  transform: translateX(3px);
+}

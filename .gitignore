@@ -1,0 +1,45 @@
+# Dependency directories
+node_modules/
+
+# Next.js build output
+.next/
+
+build
+
+# Next.js production build folder
+out/
+
+# Vercel platform logs
+.vercel/
+
+# dotenv environment variables file
+.env
+.env.local
+.env.development
+.env.production
+
+# TypeScript declaration files (generated during build)
+*.d.ts
+!src/types/assets.d.ts
+
+# TypeScript build output
+*.tsbuildinfo
+
+# Logs
+*.log
+
+# npm package lock file
+package-lock.json
+
+# Yarn lock file (if you use Yarn instead of npm)
+yarn.lock
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# IDE or editor config
+.vscode/
+.idea/

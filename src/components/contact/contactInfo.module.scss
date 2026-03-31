@@ -1,0 +1,95 @@
+@use "../../app/assets/styles/colors" as color;
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.blockLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color.$gray-400;
+}
+
+.blockValue {
+  font-size: 1rem;
+  font-weight: 600;
+  color: color.$navy;
+  transition: color 0.2s ease;
+
+  :global(html.dark) & {
+    color: color.$text-primary-dark;
+  }
+
+  &:hover {
+    color: color.$gold;
+  }
+}
+
+.blockText {
+  font-size: 1rem;
+  font-weight: 500;
+  color: color.$navy;
+
+  :global(html.dark) & {
+    color: color.$text-primary-dark;
+  }
+}
+
+.divider {
+  height: 1px;
+  background: color.$border-light;
+
+  :global(html.dark) & {
+    background: color.$border-dark;
+  }
+}
+
+.promise {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.promiseIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(245, 166, 35, 0.1);
+  color: color.$gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.promiseTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: color.$navy;
+  margin-bottom: 0.2rem;
+
+  :global(html.dark) & {
+    color: color.$text-primary-dark;
+  }
+}
+
+.promiseDesc {
+  font-size: 0.82rem;
+  color: color.$text-secondary-light;
+  line-height: 1.55;
+
+  :global(html.dark) & {
+    color: color.$text-secondary-dark;
+  }
+}

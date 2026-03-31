@@ -1,0 +1,114 @@
+@use "../../app/assets/styles/colors" as color;
+
+.section {
+  position: relative;
+  padding: 6rem 1.5rem;
+  background: color.$navy;
+  overflow: hidden;
+  text-align: center;
+
+  :global(html.dark) & {
+    background: color.$bg-dark-2;
+    border-top: 1px solid color.$border-dark;
+    border-bottom: 1px solid color.$border-dark;
+  }
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(245, 166, 35, 0.15) 0%, transparent 70%);
+}
+
+.inner {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.heading {
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: color.$white;
+  line-height: 1.2;
+}
+
+.sub {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  background: color.$gold;
+  color: color.$navy;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background: color.$gold-light;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(245, 166, 35, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  svg {
+    transition: transform 0.2s ease;
+  }
+
+  &:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: color.$gold;
+    color: color.$gold;
+  }
+}

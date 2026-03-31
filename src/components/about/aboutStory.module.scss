@@ -1,0 +1,96 @@
+@use "../../app/assets/styles/colors" as color;
+
+.section {
+  padding: 6rem 1.5rem;
+  background: color.$white;
+
+  :global(html.dark) & {
+    background: color.$bg-dark;
+  }
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: start;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.left {
+  position: sticky;
+  top: 100px;
+
+  @media (max-width: 860px) {
+    position: static;
+  }
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color.$gold;
+  margin-bottom: 0.75rem;
+}
+
+.heading {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: color.$navy;
+  line-height: 1.25;
+
+  :global(html.dark) & {
+    color: color.$text-primary-dark;
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.body {
+  font-size: 1rem;
+  color: color.$text-secondary-light;
+  line-height: 1.75;
+
+  :global(html.dark) & {
+    color: color.$text-secondary-dark;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+}
+
+.tag {
+  padding: 0.35rem 0.85rem;
+  background: rgba(245, 166, 35, 0.08);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  color: color.$gold-dark;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 100px;
+
+  :global(html.dark) & {
+    color: color.$gold;
+    background: rgba(245, 166, 35, 0.1);
+    border-color: rgba(245, 166, 35, 0.3);
+  }
+}

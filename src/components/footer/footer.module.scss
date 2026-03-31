@@ -1,0 +1,174 @@
+@use "../../app/assets/styles/colors" as color;
+
+.footer {
+  background: color.$navy;
+  color: color.$text-primary-dark;
+  padding: 4rem 1.5rem 2rem;
+
+  :global(html.dark) & {
+    background: color.$bg-dark-2;
+    border-top: 1px solid color.$border-dark;
+  }
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.logoGold {
+  color: color.$gold;
+}
+
+.logoBit {
+  color: color.$white;
+}
+
+.logoSolutions {
+  color: color.$gray-400;
+  font-weight: 400;
+  font-size: 0.85rem;
+  margin-left: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.tagline {
+  color: color.$gray-400;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 280px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+.contactLink {
+  color: color.$gray-400;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: color.$gold;
+  }
+}
+
+.nav {
+  // nav column
+}
+
+.navLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color.$gray-400;
+  margin-bottom: 1rem;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navLink {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: color.$gold;
+  }
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  justify-content: flex-start;
+}
+
+.ctaText {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 260px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  background: color.$gold;
+  color: color.$navy;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.15s ease;
+  align-self: flex-start;
+
+  &:hover {
+    background: color.$gold-light;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.legal {
+  color: color.$gray-400;
+  font-size: 0.8rem;
+}
+
+.location {
+  color: color.$gray-400;
+  font-size: 0.8rem;
+}

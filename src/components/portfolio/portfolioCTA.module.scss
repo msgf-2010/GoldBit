@@ -1,0 +1,53 @@
+@use "../../app/assets/styles/colors" as color;
+
+.section {
+  padding: 5rem 1.5rem;
+  background: color.$navy;
+  text-align: center;
+
+  :global(html.dark) & {
+    background: color.$bg-dark;
+    border-top: 1px solid color.$border-dark;
+  }
+}
+
+.inner {
+  max-width: 580px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.heading {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: color.$white;
+}
+
+.sub {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  max-width: 460px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 2.25rem;
+  background: color.$gold;
+  color: color.$navy;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  transition: background 0.2s ease, transform 0.15s ease;
+
+  &:hover {
+    background: color.$gold-light;
+    transform: translateY(-2px);
+  }
+}

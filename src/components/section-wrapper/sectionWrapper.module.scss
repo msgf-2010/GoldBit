@@ -1,0 +1,27 @@
+@use "../../app/assets/styles/colors" as color;
+
+.section {
+  padding: 5rem 1.5rem;
+  background: color.$bg-light;
+
+  :global(html.dark) & {
+    background: color.$bg-dark;
+  }
+
+  &.dark {
+    background: color.$navy;
+
+    :global(html.dark) & {
+      background: color.$bg-dark-2;
+    }
+  }
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &.narrow {
+    max-width: 800px;
+  }
+}
