@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 export const runtime = "nodejs";
+
+const esc = (s: string) =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,24 +14,21 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
     }
 
-    const user = process.env.SMTP_USER?.trim();
-    const pass = process.env.SMTP_PASS?.replace(/\s+/g, "");
+    const apiKey = process.env.RESEND_API_KEY?.trim();
+    const from = process.env.RESEND_FROM?.trim();
 
-    if (!user || !pass) {
-      console.error("[contact] Missing SMTP_USER or SMTP_PASS env vars");
+    if (!apiKey || !from) {
+      console.error("[contact] Missing RESEND_API_KEY or RESEND_FROM env vars");
       return NextResponse.json(
         { error: "Email service is not configured." },
         { status: 500 }
       );
     }
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: { user, pass },
-    });
+    const resend = new Resend(apiKey);
 
-    await transporter.sendMail({
-      from: `"GoldBit Contact Form" <${user}>`,
+    const { data, error } = await resend.emails.send({
+      from,
       to: "moe.goldbit@gmail.com",
       replyTo: email,
       subject: `New Contact Form Submission — ${name}`,
@@ -45,19 +45,27 @@ export async function POST(req: NextRequest) {
         .join("\n"),
       html: `
         <table style="font-family:sans-serif;font-size:15px;color:#222;max-width:600px;">
-          <tr><td style="padding:4px 0"><strong>Name:</strong> ${name}</td></tr>
-          <tr><td style="padding:4px 0"><strong>Email:</strong> <a href="mailto:${email}">${email}</a></td></tr>
-          ${company ? `<tr><td style="padding:4px 0"><strong>Company:</strong> ${company}</td></tr>` : ""}
-          ${phone   ? `<tr><td style="padding:4px 0"><strong>Phone:</strong> ${phone}</td></tr>` : ""}
+          <tr><td style="padding:4px 0"><strong>Name:</strong> ${esc(name)}</td></tr>
+          <tr><td style="padding:4px 0"><strong>Email:</strong> <a href="mailto:${esc(email)}">${esc(email)}</a></td></tr>
+          ${company ? `<tr><td style="padding:4px 0"><strong>Company:</strong> ${esc(company)}</td></tr>` : ""}
+          ${phone   ? `<tr><td style="padding:4px 0"><strong>Phone:</strong> ${esc(phone)}</td></tr>` : ""}
           <tr><td style="padding:16px 0 4px"><strong>Message:</strong></td></tr>
-          <tr><td style="padding:4px 0;white-space:pre-wrap;background:#f5f5f5;padding:12px;border-radius:6px">${message}</td></tr>
+          <tr><td style="padding:4px 0;white-space:pre-wrap;background:#f5f5f5;padding:12px;border-radius:6px">${esc(message)}</td></tr>
         </table>
       `,
     });
 
-    return NextResponse.json({ ok: true });
+    if (error) {
+      console.error("[contact] Resend rejected the send:", error);
+      return NextResponse.json(
+        { error: "Failed to send.", detail: error.message },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ ok: true, id: data?.id });
   } catch (err) {
-    console.error("[contact] sendMail failed:", err);
+    console.error("[contact] send failed:", err);
     const detail = err instanceof Error ? err.message : String(err);
     return NextResponse.json({ error: "Failed to send.", detail }, { status: 500 });
   }
