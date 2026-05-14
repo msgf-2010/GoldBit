@@ -26,6 +26,8 @@ export default function ContactForm() {
   const [form, setForm] = useState<FormState>(INITIAL);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<FormState>>({});
+  const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState("");
 
   const validate = (): boolean => {
     const errs: Partial<FormState> = {};
@@ -50,10 +52,24 @@ export default function ContactForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    setSubmitted(true);
+    setLoading(true);
+    setServerError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed to send message.");
+      setSubmitted(true);
+    } catch {
+      setServerError("Something went wrong. Please try again or email us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -171,11 +187,14 @@ export default function ContactForm() {
         {errors.message && <p className={styles.error}>{errors.message}</p>}
       </div>
 
-      <button type="submit" className={styles.submit}>
-        Send Message
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+      {serverError && <p className={styles.error}>{serverError}</p>}
+      <button type="submit" className={styles.submit} disabled={loading}>
+        {loading ? "Sending…" : "Send Message"}
+        {!loading && (
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        )}
       </button>
     </form>
   );

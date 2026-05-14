@@ -63,87 +63,19 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   flex-shrink: 0;
   text-decoration: none;
-
-  &:hover .logoMark rect {
-    opacity: 0.9;
-  }
 }
 
-.logoMark {
-  color: color.$gold;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-
-  rect {
-    transition: opacity 0.3s ease;
-  }
+.logoImg {
+  height: 76px;
+  width: auto;
+  object-fit: contain;
+  transition: opacity 0.2s ease, transform 0.3s ease;
 
   .logo:hover & {
-    transform: rotate(8deg) scale(1.05);
-  }
-}
-
-.logoText {
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-
-.logoGold {
-  color: color.$gold;
-}
-
-.logoBit {
-  color: color.$white;
-
-  // when scrolled, header becomes light — flip to navy
-  .header.scrolled & {
-    color: color.$navy;
-
-    :global(html.dark) & {
-      color: color.$white;
-    }
-  }
-
-  // keep white when menu is open (header stays dark)
-  .header.menuIsOpen & {
-    color: color.$white;
-  }
-}
-
-.logoSep {
-  display: block;
-  width: 1px;
-  height: 14px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 0 0.1rem;
-  flex-shrink: 0;
-
-  .header.scrolled & {
-    background: color.$border-light;
-
-    :global(html.dark) & {
-      background: color.$border-dark;
-    }
-  }
-}
-
-.logoSolutions {
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.5);
-
-  .header.scrolled & {
-    color: color.$gray-400;
-
-    :global(html.dark) & {
-      color: color.$gray-400;
-    }
+    transform: scale(1.03);
+    opacity: 0.9;
   }
 }
 

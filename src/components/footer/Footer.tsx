@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./footer.module.scss";
 
 const NAV_LINKS = [
@@ -16,9 +17,13 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.brand}>
             <Link href="/" className={styles.logo}>
-              <span className={styles.logoGold}>Gold</span>
-              <span className={styles.logoBit}>Bit</span>
-              <span className={styles.logoSolutions}>Solutions</span>
+              <Image
+                src="/GoldBitSolutions_FF.png"
+                alt="GoldBit Solutions"
+                height={84}
+                width={306}
+                className={styles.logoImg}
+              />
             </Link>
             <p className={styles.tagline}>
               Software built around your business, not the other way around.

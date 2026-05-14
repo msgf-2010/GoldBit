@@ -41,27 +41,18 @@
 
 .logo {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0;
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  align-items: center;
 }
 
-.logoGold {
-  color: color.$gold;
-}
+.logoImg {
+  height: 84px;
+  width: auto;
+  object-fit: contain;
+  transition: opacity 0.2s ease;
 
-.logoBit {
-  color: color.$white;
-}
-
-.logoSolutions {
-  color: color.$gray-400;
-  font-weight: 400;
-  font-size: 0.85rem;
-  margin-left: 0.35rem;
-  letter-spacing: 0.02em;
+  &:hover {
+    opacity: 0.85;
+  }
 }
 
 .tagline {

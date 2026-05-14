@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
@@ -67,13 +68,14 @@ export default function Navbar() {
         <div className={styles.inner}>
           {/* Logo */}
           <Link href="/" className={styles.logo} onClick={() => setMenuOpen(false)}>
-            <LogoMark />
-            <span className={styles.logoText}>
-              <span className={styles.logoGold}>Gold</span>
-              <span className={styles.logoBit}>Bit</span>
-            </span>
-            <span className={styles.logoSep} aria-hidden />
-            <span className={styles.logoSolutions}>Solutions</span>
+            <Image
+              src="/GoldBitSolutions_FF.png"
+              alt="GoldBit Solutions"
+              height={76}
+              width={294}
+              className={styles.logoImg}
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -209,17 +211,6 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </>
-  );
-}
-
-function LogoMark() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" className={styles.logoMark}>
-      <rect x="1" y="1" width="9" height="9" rx="2.5" fill="currentColor" opacity="1"/>
-      <rect x="12" y="1" width="9" height="9" rx="2.5" fill="currentColor" opacity="0.4"/>
-      <rect x="1" y="12" width="9" height="9" rx="2.5" fill="currentColor" opacity="0.4"/>
-      <rect x="12" y="12" width="9" height="9" rx="2.5" fill="currentColor" opacity="0.15"/>
-    </svg>
   );
 }
 
