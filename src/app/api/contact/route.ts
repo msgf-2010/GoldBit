@@ -3,8 +3,14 @@ import { Resend } from "resend";
 
 export const runtime = "nodejs";
 
+const TEAM_INBOX = "moe.goldbit@gmail.com";
+
 const esc = (s: string) =>
-  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 
 export async function POST(req: NextRequest) {
   try {
@@ -28,8 +34,8 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(apiKey);
 
     const { data, error } = await resend.emails.send({
-      from,
-      to: "moe.goldbit@gmail.com",
+      from: `GoldBit Contact Form <${from}>`,
+      to: TEAM_INBOX,
       replyTo: email,
       subject: `New Contact Form Submission — ${name}`,
       text: [
