@@ -32,8 +32,8 @@ export default function Footer() {
               <a href="mailto:info@goldbitsolutions.com" className={styles.contactLink}>
                 info@goldbitsolutions.com
               </a>
-              <a href="tel:2034417319" className={styles.contactLink}>
-                203-441-7319
+              <a href="tel:2039414333" className={styles.contactLink}>
+                203-941-4333
               </a>
             </div>
           </div>

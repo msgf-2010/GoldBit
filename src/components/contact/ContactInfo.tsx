@@ -12,8 +12,8 @@ export default function ContactInfo() {
 
       <div className={styles.block}>
         <p className={styles.blockLabel}>Phone</p>
-        <a href="tel:2034417319" className={styles.blockValue}>
-          203-441-7319
+        <a href="tel:2039414333" className={styles.blockValue}>
+          203-941-4333
         </a>
       </div>
 

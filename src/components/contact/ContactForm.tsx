@@ -92,7 +92,7 @@ export default function ContactForm() {
           <a href="mailto:info@goldbitsolutions.com">
             info@goldbitsolutions.com
           </a>{" "}
-          or <a href="tel:2034417319">203-441-7319</a>.
+          or <a href="tel:2039414333">203-941-4333</a>.
         </p>
       </motion.div>
     );

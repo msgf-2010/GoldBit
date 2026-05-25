@@ -33,8 +33,8 @@ export default function CTABanner() {
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </Link>
-          <a href="tel:2034417319" className={styles.secondary}>
-            203-441-7319
+          <a href="tel:2039414333" className={styles.secondary}>
+            203-941-4333
           </a>
         </div>
       </motion.div>

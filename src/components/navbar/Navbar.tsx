@@ -198,8 +198,8 @@ export default function Navbar() {
                   <a href="mailto:info@goldbitsolutions.com" className={styles.overlayContactLink}>
                     info@goldbitsolutions.com
                   </a>
-                  <a href="tel:2034417319" className={styles.overlayContactLink}>
-                    203-441-7319
+                  <a href="tel:2039414333" className={styles.overlayContactLink}>
+                    203-941-4333
                   </a>
                 </div>
                 <Link href="/contact" className={styles.overlayCta} onClick={() => setMenuOpen(false)}>
