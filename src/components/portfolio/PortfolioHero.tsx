@@ -21,9 +21,9 @@ export default function PortfolioHero() {
           <p className={styles.eyebrow}>Our Work</p>
           <h1 className={styles.heading}>Case Studies</h1>
           <p className={styles.sub}>
-            A look at the systems we've built and the problems we've solved.
-            Each project is unique, designed specifically for the business and
-            operation it serves.
+            A look at systems we've built from the ground up — full platforms
+            that brought entire businesses into one connected workflow. Each
+            project is designed specifically for the operation it serves.
           </p>
         </motion.div>
       </div>

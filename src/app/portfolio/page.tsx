@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import PortfolioHero from "@/components/portfolio/PortfolioHero";
-import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
+import ProjectGrid from "@/components/portfolio/ProjectGrid";
 import PortfolioCTA from "@/components/portfolio/PortfolioCTA";
 
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Case studies and examples of custom software solutions built by GoldBit Solutions for operations-driven businesses.",
+    "Case studies of custom software built by GoldBit Solutions — from a comprehensive HRMS platform to a unified operations system for distribution and logistics.",
 };
 
 export default function PortfolioPage() {
@@ -17,7 +17,7 @@ export default function PortfolioPage() {
       <Navbar />
       <main>
         <PortfolioHero />
-        <PortfolioGrid />
+        <ProjectGrid />
         <PortfolioCTA />
       </main>
       <Footer />
