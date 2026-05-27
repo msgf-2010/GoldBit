@@ -1,0 +1,128 @@
+@use "../../app/assets/styles/colors" as color;
+
+.card {
+  background: color.$white;
+  border: 1px solid color.$border-light;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+
+  :global(html.dark) & {
+    background: color.$navy-mid;
+    border-color: color.$border-dark;
+  }
+
+  &:hover {
+    border-color: rgba(251, 149, 61, 0.45);
+    transform: translateY(-4px);
+    box-shadow: 0 18px 44px -22px rgba(26, 26, 46, 0.4);
+
+    :global(html.dark) & {
+      box-shadow: 0 18px 44px -22px rgba(0, 0, 0, 0.6);
+    }
+
+    .thumbImg {
+      transform: scale(1.04);
+    }
+
+    .cardLinkText {
+      gap: 0.7rem;
+      color: color.$gold-dark;
+
+      :global(html.dark) & {
+        color: color.$gold-light;
+      }
+    }
+  }
+}
+
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg, color.$gray-100, color.$off-white);
+  border-bottom: 1px solid color.$border-light;
+
+  :global(html.dark) & {
+    background: linear-gradient(135deg, color.$navy, color.$navy-mid);
+    border-bottom-color: color.$border-dark;
+  }
+}
+
+.thumbImg {
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1.6rem;
+  flex: 1;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: color.$gold-dark;
+  background: rgba(251, 149, 61, 0.1);
+  border: 1px solid rgba(251, 149, 61, 0.22);
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+
+  :global(html.dark) & {
+    color: color.$gold-light;
+  }
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: color.$navy;
+  margin-top: 0.15rem;
+
+  :global(html.dark) & {
+    color: color.$text-primary-dark;
+  }
+}
+
+.cardDesc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: color.$text-secondary-light;
+
+  :global(html.dark) & {
+    color: color.$text-secondary-dark;
+  }
+}
+
+.cardLinkText {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: color.$gold;
+  transition: gap 0.2s ease, color 0.2s ease;
+}

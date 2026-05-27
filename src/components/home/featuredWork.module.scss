@@ -1,0 +1,109 @@
+@use "../../app/assets/styles/colors" as color;
+
+.section {
+  padding: 6rem 1.5rem;
+  background: color.$off-white;
+
+  :global(html.dark) & {
+    background: color.$bg-dark-2;
+  }
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+
+  @media (max-width: 760px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}
+
+.headText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 620px;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color.$gold;
+}
+
+.heading {
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: color.$navy;
+
+  :global(html.dark) & {
+    color: color.$text-primary-dark;
+  }
+}
+
+.sub {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: color.$text-secondary-light;
+
+  :global(html.dark) & {
+    color: color.$text-secondary-dark;
+  }
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  padding: 0.7rem 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: color.$navy;
+  background: color.$white;
+  border: 1px solid color.$border-light;
+  border-radius: 8px;
+  transition: border-color 0.2s ease, gap 0.2s ease, color 0.2s ease;
+
+  :global(html.dark) & {
+    color: color.$text-primary-dark;
+    background: color.$navy-mid;
+    border-color: color.$border-dark;
+  }
+
+  &:hover {
+    gap: 0.7rem;
+    border-color: rgba(251, 149, 61, 0.45);
+    color: color.$gold-dark;
+
+    :global(html.dark) & {
+      color: color.$gold-light;
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+
+  @media (max-width: 820px) {
+    grid-template-columns: 1fr;
+  }
+}

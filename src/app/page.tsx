@@ -5,6 +5,7 @@ import HeroSection from "@/components/home/HeroSection";
 import ValuePropsSection from "@/components/home/ValuePropsSection";
 import USPSection from "@/components/home/USPSection";
 import ServicesOverview from "@/components/home/ServicesOverview";
+import FeaturedWork from "@/components/home/FeaturedWork";
 import CTABanner from "@/components/home/CTABanner";
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function HomePage() {
         <HeroSection />
         <ValuePropsSection />
         <ServicesOverview />
+        <FeaturedWork />
         <USPSection />
         <CTABanner />
       </main>
